@@ -1,0 +1,69 @@
+{
+    "private": true,
+    "name": "admin",
+    "description": "",
+    "keywords": [],
+    "author": "Adrian Tanase <tanase.adrian92@gmail.com>",
+    "license": "MIT",
+    "version": "0.0.0",
+    "engineStrict": true,
+    "engines": {
+        "node": ">=16",
+        "npm": "Please use pnpm",
+        "yarn": "Please use pnpm",
+        "pnpm": ">=6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/monatheoctocat/my_package.git"
+    },
+    "bugs": {
+        "url": "https://github.com/monatheoctocat/my_package/issues"
+    },
+    "homepage": "https://github.com/monatheoctocat/my_package",
+    "scripts": {
+        "ng": "ng",
+        "config": "ts-node ./src/assets/scripts/setEnv.ts",
+        "start": "pnpm run config -- --environment=dev && ng serve",
+        "build": "pnpm run config -- --environment=prod && ng build --prod",
+        "watch": "ng build --watch --configuration development",
+        "test": "ng test"
+    },
+    "dependencies": {
+        "@angular/animations": "14.2.0",
+        "@angular/cdk": "14.2.2",
+        "@angular/common": "14.2.0",
+        "@angular/compiler": "14.2.0",
+        "@angular/core": "14.2.0",
+        "@angular/forms": "14.2.0",
+        "@angular/material": "14.2.2",
+        "@angular/platform-browser": "14.2.0",
+        "@angular/platform-browser-dynamic": "14.2.0",
+        "@angular/router": "14.2.0",
+        "rxjs": "7.5.0",
+        "zone.js": "0.11.4"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "14.2.3",
+        "@angular/cli": "14.2.3",
+        "@angular/compiler-cli": "14.2.0",
+        "@schematics/angular": "14.2.3",
+        "@types/jasmine": "4.0.0",
+        "@types/node": "18.11.8",
+        "@typescript-eslint/eslint-plugin": "5.38.0",
+        "@typescript-eslint/parser": "5.38.0",
+        "dotenv": "16.0.3",
+        "eslint": "8.23.1",
+        "jasmine-core": "4.3.0",
+        "karma": "6.4.0",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.0",
+        "karma-jasmine": "5.1.0",
+        "karma-jasmine-html-reporter": "2.0.0",
+        "prettier": "2.7.1",
+        "ts-node": "10.9.1",
+        "tslib": "2.4.0",
+        "typescript": "4.7.2",
+        "yargs": "17.6.0"
+    }
+}
