@@ -1,0 +1,34 @@
+<form class="form" [formGroup]="form" (ngSubmit)="login()">
+    <div formGroupName="account">
+        <mat-icon *ngIf="form.errors">The username or password is invalid.</mat-icon>
+
+        <div class="form__field form__field--block">
+            <mat-form-field appearance="standard">
+                <mat-label>Username</mat-label>
+                <input matInput maxlength="30" formControlName="username" id="username" type="text" placeholder="Ex. andrei@gmail.com">
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint align="end">{{username?.value?.length || 0}}/10</mat-hint>
+                <!-- <mat-error *ngIf="username?.pending">Checking for uniqueness...</mat-error> -->
+                <mat-error *ngIf="username?.errors?.['required']">Username is required</mat-error>
+                <mat-error *ngIf="username?.errors?.['minlength']">Username should be minimum {{ username?.errors?.['minlength'].requiredLength }} characters.</mat-error>
+                <mat-error *ngIf="username?.errors?.['cannotContainSpace']">Username cannot contain space.</mat-error>
+                <mat-error *ngIf="username?.errors?.['shouldBeUnique']">Username is already taken.</mat-error>            
+            </mat-form-field>
+        </div>
+
+
+        <div class="form__field form__field--block">
+            <mat-form-field appearance="standard">
+                <mat-label>Enter your password</mat-label>
+                <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        
+        <div class="form__actions">
+            <button mat-flat-button color="primary" type="submit">Sign Up</button>
+        </div>
+    </div>
+</form>

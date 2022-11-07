@@ -1,0 +1,55 @@
+<form class="form" [formGroup]="form" (ngSubmit)="quickEditUser()">
+    <fieldset class="m-b-md">
+        <legend>Base Information:</legend>
+
+        <div class="flx-row flx-between-xs">
+            <div class="flx-col-xs-6 form__field">
+                <mat-form-field appearance="standard">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" id="firstName" type="text" placeholder="Ex. John">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint align="end">{{firstName?.value?.length || 0}}/100</mat-hint>
+                    <mat-error *ngIf="firstName?.errors?.['required']">This field is required</mat-error>
+                    <mat-error *ngIf="firstName?.errors?.['minlength']">This field should be minimum {{ firstName?.errors?.['minlength'].requiredLength }} characters.</mat-error>   
+                    <mat-error *ngIf="firstName?.errors?.['maxLength']">This field should be maximum {{ firstName?.errors?.['maxLength'].requiredLength }} characters.</mat-error>   
+                </mat-form-field>
+            </div>
+    
+            <div class="flx-col-xs-6 form__field">
+                <mat-form-field appearance="standard">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" id="lastName" type="text" placeholder="Ex. Doe">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint align="end">{{lastName?.value?.length || 0}}/100</mat-hint>
+                    <mat-error *ngIf="lastName?.errors?.['required']">This field is required</mat-error>
+                    <mat-error *ngIf="lastName?.errors?.['minlength']">This field should be minimum {{ lastName?.errors?.['minlength'].requiredLength }} characters.</mat-error>   
+                    <mat-error *ngIf="lastName?.errors?.['maxLength']">This field should be maximum {{ lastName?.errors?.['maxLength'].requiredLength }} characters.</mat-error>   
+                </mat-form-field>
+            </div>           
+        </div>
+
+        <div class="flx-row flx-between-xs">
+            <div class="flx-col-xs-6 form__field">
+                <mat-form-field appearance="standard">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="phone" id="phone" type="text" placeholder="Ex. +40 7## ### ###">
+                    <mat-icon matSuffix>phone_iphone</mat-icon>
+                    <mat-hint align="end">{{phone?.value?.length || 0}}/100</mat-hint>
+                    <mat-error *ngIf="phone?.errors?.['required']">This field is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flx-col-xs-6 form__field">
+                <mat-form-field appearance="standard">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" id="email" type="text" placeholder="Ex. ###@###.###">
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <mat-hint align="end">{{email?.value?.length || 0}}/100</mat-hint>
+                    <mat-error *ngIf="email?.errors?.['required']">This field is required</mat-error>
+                    <mat-error *ngIf="email?.errors?.['pattern']">This field must be a valid email address</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </fieldset>
+</form>
+

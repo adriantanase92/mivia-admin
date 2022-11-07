@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Quick Edit - {{modalData.fullName}}</h2>
+<mat-dialog-content class="mat-typography">
+    <app-quick-edit-user-form></app-quick-edit-user-form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>

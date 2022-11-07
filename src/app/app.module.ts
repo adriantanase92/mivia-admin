@@ -4,20 +4,33 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CoreModule} from "./core/core.module";
-import {MatSliderModule} from "@angular/material/slider";
-import {PrivateModule} from "./modules/private/private.module";
-import {PublicModule} from "./modules/public/public.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SharedModule} from "./shared/shared.module";
+import {AuthModule} from "./modules/auth/auth.module";
+import {DashboardModule} from "./modules/dashboard/dashboard.module";
+import {UsersModule} from "./modules/users/users.module";
+import {InvestigationsModule} from "./modules/investigations/investigations.module";
+import {SpecializationsModule} from "./modules/specializations/specializations.module";
+import {PlacesModule} from "./modules/places/places.module";
+import {SettingsModule} from "./modules/settings/settings.module";
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
-        BrowserModule,
         AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserModule,
         BrowserAnimationsModule,
         CoreModule,
-        MatSliderModule,
-        PublicModule,
-        PrivateModule
+        SharedModule,
+        AuthModule,
+        DashboardModule,
+        UsersModule,
+        InvestigationsModule,
+        SpecializationsModule,
+        PlacesModule,
+        SettingsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
