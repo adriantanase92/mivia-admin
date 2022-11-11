@@ -1,0 +1,9 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "@angular/material/theming";
+
+$defaultWhite: #ffffff;
+$defaultBlack: #000000;
+$error: mat-color(mat-palette($mat-red));
+$warn: mat-color(mat-palette($mat-orange));
+$info: mat-color(mat-palette($mat-blue));
+$success: mat-color(mat-palette($mat-green));

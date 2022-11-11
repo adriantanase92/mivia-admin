@@ -40,12 +40,12 @@ module.exports = {
             {
                 selector: "default",
                 trailingUnderscore: "allow",
-                format: ["camelCase"]
+                format: ["camelCase", "snake_case"]
             },
             {
                 selector: "variable",
                 trailingUnderscore: "allow",
-                format: ["camelCase", "UPPER_CASE"]
+                format: ["camelCase", "UPPER_CASE", "snake_case", "PascalCase"]
             },
             // Enforce enum members to be PascalCase
             {

@@ -13,6 +13,9 @@ import {InvestigationsModule} from "./modules/investigations/investigations.modu
 import {SpecializationsModule} from "./modules/specializations/specializations.module";
 import {PlacesModule} from "./modules/places/places.module";
 import {SettingsModule} from "./modules/settings/settings.module";
+import {HttpClientModule} from "@angular/common/http";
+import {ErrorInterceptorProvider} from "./core/interceptors/error.interceptor";
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -22,6 +25,7 @@ import {SettingsModule} from "./modules/settings/settings.module";
         FormsModule,
         BrowserModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         CoreModule,
         SharedModule,
         AuthModule,
@@ -30,9 +34,10 @@ import {SettingsModule} from "./modules/settings/settings.module";
         InvestigationsModule,
         SpecializationsModule,
         PlacesModule,
-        SettingsModule
+        SettingsModule,
+        LayoutModule
     ],
-    providers: [],
+    providers: [ErrorInterceptorProvider],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -11,10 +11,10 @@ const routes: Routes = [
         path: "",
         component: LayoutComponent,
         children: [
-            {path: "staff", component: StaffComponent},
-            {path: "patients", component: PatientsComponent},
-            {path: "doctors", component: DoctorsComponent},
-            {path: "doctor/:id", component: DoctorComponent}
+            {path: "staff", component: StaffComponent, pathMatch: "full"},
+            {path: "patients", component: PatientsComponent, pathMatch: "full"},
+            {path: "doctors", component: DoctorsComponent, pathMatch: "full"},
+            {path: "doctor/:id", component: DoctorComponent, pathMatch: "full"}
         ]
     }
 ];

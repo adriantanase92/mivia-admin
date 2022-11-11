@@ -1,0 +1,17 @@
+.notification {
+    &--success {
+        background: $success;
+    }
+
+    &--error {
+        background: $error;
+    }
+
+    &--warn {
+        background: $warn;
+    }
+
+    &--info {
+        background: $info;
+    }
+}

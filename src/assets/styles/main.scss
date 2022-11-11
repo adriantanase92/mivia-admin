@@ -5,11 +5,13 @@
 // base
 @import "base/reset";
 @import "base/typography";
+@import "base/colors";
 @import "base/spacing";
 @import "base/dividers";
 // helpers
 @import "helpers/spacing";
 // components
+@import "components/notification";
 // layout
 @import "layout/header";
 @import "layout/footer";

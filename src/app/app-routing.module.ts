@@ -1,3 +1,4 @@
+import {TemporaryComponent} from "./layout/components/temporary/temporary.component";
 import {DashboardComponent} from "./modules/dashboard/pages/dashboard/dashboard.component";
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
@@ -19,6 +20,7 @@ const routes: Routes = [
         path: "users",
         loadChildren: () => import("./modules/users/users.module").then((m) => m.UsersModule)
     },
+    {path: "temporary", component: TemporaryComponent},
     {path: "**", component: PageNotFoundComponent}
 ];
 
