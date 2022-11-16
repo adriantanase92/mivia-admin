@@ -1,12 +1,12 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {SharedModule} from "../shared/shared.module";
-import { TemporaryComponent } from './components/temporary/temporary.component';
+import {MiscComponent} from "./misc/misc.component";
+import {MainLayoutComponent} from "./main-layout/main-layout.component";
+import {CenteredContentLayoutComponent} from "./centered-content-layout/centered-content-layout.component";
 
 @NgModule({
-    declarations: [
-    TemporaryComponent
-  ],
+    declarations: [MiscComponent, MainLayoutComponent, CenteredContentLayoutComponent],
     imports: [CommonModule, SharedModule]
 })
 export class LayoutModule {}

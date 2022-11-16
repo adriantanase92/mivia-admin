@@ -15,7 +15,7 @@ import {PlacesModule} from "./modules/places/places.module";
 import {SettingsModule} from "./modules/settings/settings.module";
 import {HttpClientModule} from "@angular/common/http";
 import {ErrorInterceptorProvider} from "./core/interceptors/error.interceptor";
-import { LayoutModule } from './layout/layout.module';
+import {LayoutModule} from "./layout/layout.module";
 
 @NgModule({
     declarations: [AppComponent],
@@ -28,14 +28,14 @@ import { LayoutModule } from './layout/layout.module';
         HttpClientModule,
         CoreModule,
         SharedModule,
+        LayoutModule,
         AuthModule,
         DashboardModule,
         UsersModule,
         InvestigationsModule,
         SpecializationsModule,
         PlacesModule,
-        SettingsModule,
-        LayoutModule
+        SettingsModule
     ],
     providers: [ErrorInterceptorProvider],
     bootstrap: [AppComponent]

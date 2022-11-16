@@ -166,8 +166,8 @@ export class DoctorsComponent implements OnInit, AfterViewInit {
     }
 
     deleteUser(id: string) {
-        this.httpService.deleteOne("users", "231").subscribe(
-            (response) => {
+        this.httpService.deleteOne("users", id).subscribe(
+            () => {
                 console.log("user deleted");
             },
             (error: Response) => {

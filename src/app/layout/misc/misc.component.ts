@@ -3,9 +3,9 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {NotificationService} from "src/app/core/notifications/notification.service";
 
 @Component({
-    templateUrl: "./temporary.component.html"
+    templateUrl: "./misc.component.html"
 })
-export class TemporaryComponent implements OnInit {
+export class MiscComponent implements OnInit {
     constructor(public notificationService: NotificationService, private snackBar: MatSnackBar) {}
 
     openSnackBar(message: string, action: string, className: string) {

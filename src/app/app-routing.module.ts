@@ -1,4 +1,4 @@
-import {TemporaryComponent} from "./layout/components/temporary/temporary.component";
+import {MiscComponent} from "./layout/misc/misc.component";
 import {DashboardComponent} from "./modules/dashboard/pages/dashboard/dashboard.component";
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
@@ -8,10 +8,11 @@ import {SpecializationsComponent} from "./modules/specializations/pages/speciali
 import {PlacesComponent} from "./modules/places/pages/places/places.component";
 import {SettingsComponent} from "./modules/settings/pages/settings/settings.component";
 import {PageNotFoundComponent} from "./shared/pages/page-not-found/page-not-found.component";
+import {Layouts} from "./app.component";
 
 const routes: Routes = [
     {path: "login", component: LoginComponent},
-    {path: "dashboard", component: DashboardComponent},
+    {path: "dashboard", component: DashboardComponent, data: {layout: Layouts.Main}},
     {path: "settings", component: SettingsComponent},
     {path: "investigations", component: InvestigationsComponent},
     {path: "specializations", component: SpecializationsComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
         path: "users",
         loadChildren: () => import("./modules/users/users.module").then((m) => m.UsersModule)
     },
-    {path: "temporary", component: TemporaryComponent},
+    {path: "misc", component: MiscComponent},
     {path: "**", component: PageNotFoundComponent}
 ];
 

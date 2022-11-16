@@ -1,0 +1,11 @@
+<mat-card-title>Misc Page</mat-card-title>
+
+<fieldset class="m-t-lg m-b-md">
+    <legend>Notifications</legend>
+
+    <button mat-button (click)="notificationService.openSnackBar('Hello', 'Close')">Normal Notification</button>
+    <button mat-button (click)="notificationService.error('error')">Error Notification</button>
+    <button mat-button (click)="notificationService.success('success')">Success Notification</button>
+    <button mat-button (click)="showConfirm()">Confirm Notification</button>
+    <button mat-button (click)="showAlert()">Alert Notification</button>
+</fieldset>
