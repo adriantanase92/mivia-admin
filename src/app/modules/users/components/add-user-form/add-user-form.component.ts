@@ -10,7 +10,7 @@ export class AddUserFormComponent implements OnInit {
         {name: "manager", id: "6358485c829c6b2446a29a01"},
         {name: "operator", id: "6358485c829c6b2446a29a02"},
         {name: "doctor", id: "6358485c829c6b2446a29a03"},
-        {name: "pacient", id: "6358485c829c6b2446a29a04"},
+        {name: "patient", id: "6358485c829c6b2446a29a04"},
         {name: "unclassified", id: "6358485c829c6b2446a29a05"}
     ];
     form;

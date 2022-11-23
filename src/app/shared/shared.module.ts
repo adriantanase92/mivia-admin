@@ -5,10 +5,18 @@ import {NavComponent} from "./components/nav/nav.component";
 
 import {RouterModule} from "@angular/router";
 import {MaterialModule} from "./material/material.module";
+import {ListItemsComponent} from "./components/list-items/list-items.component";
+import {SingleItemComponent} from "./components/single-item/single-item.component";
 
 @NgModule({
-    declarations: [NavComponent, PageNotFoundComponent],
-    exports: [NavComponent, PageNotFoundComponent, MaterialModule],
+    declarations: [NavComponent, PageNotFoundComponent, ListItemsComponent, SingleItemComponent],
+    exports: [
+        NavComponent,
+        PageNotFoundComponent,
+        MaterialModule,
+        ListItemsComponent,
+        SingleItemComponent
+    ],
     imports: [RouterModule, CommonModule, MaterialModule]
 })
 export class SharedModule {}
