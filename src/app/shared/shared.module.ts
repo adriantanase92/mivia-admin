@@ -7,9 +7,19 @@ import {RouterModule} from "@angular/router";
 import {MaterialModule} from "./material/material.module";
 import {ListItemsComponent} from "./components/list-items/list-items.component";
 import {SingleItemComponent} from "./components/single-item/single-item.component";
+import {DynamicFormFieldComponent} from "./components/dynamic-form-field/dynamic-form-field.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {ModalWithFormComponent} from "./components/modal-with-form/modal-with-form.component";
 
 @NgModule({
-    declarations: [NavComponent, PageNotFoundComponent, ListItemsComponent, SingleItemComponent],
+    declarations: [
+        NavComponent,
+        PageNotFoundComponent,
+        ListItemsComponent,
+        SingleItemComponent,
+        DynamicFormFieldComponent,
+        ModalWithFormComponent
+    ],
     exports: [
         NavComponent,
         PageNotFoundComponent,
@@ -17,6 +27,6 @@ import {SingleItemComponent} from "./components/single-item/single-item.componen
         ListItemsComponent,
         SingleItemComponent
     ],
-    imports: [RouterModule, CommonModule, MaterialModule]
+    imports: [RouterModule, CommonModule, ReactiveFormsModule, MaterialModule]
 })
 export class SharedModule {}

@@ -17,16 +17,16 @@
 
 <section class="data-iterator mat-elevation-z2">
     <div class="data-iterator__table-container">
-        <table class="data-iterator__table" mat-table [dataSource]="dataSource" matSort>
+        <table class="data-iterator__table" mat-table [dataSource]="items" matSort>
             <ng-container [matColumnDef]="column.name" *ngFor="let column of data.tableColumnsData; let i = index" [sticky]="column.sticky">
                 <th mat-header-cell *matHeaderCellDef [mat-sort-header]="checkSortValues(column)" [disabled]="!column.sortable"> {{column.label}}</th>
                 <td mat-cell *matCellDef="let row;">
                     <ng-container *ngIf="column.name === 'position';">
-                        {{dataSource.filteredData.indexOf(row) + 1}}
+                        {{this.paginator.pageIndex * this.paginator.pageSize + items.indexOf(row) + 1}}
                     </ng-container>
 
                     <ng-container *ngIf="column.name !== 'position' && column.name !== 'actions'">
-                        {{ isObjectValue(row[column.name]) ? row[column.name][column.subname] : row[column.name] }}
+                        {{ this.helpersService.isObjectValue(row[column.name]) ? row[column.name][column.subname] : row[column.name] }}
                     </ng-container>
 
                     <ng-container *ngIf="column.name === 'actions'">
@@ -53,18 +53,12 @@
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-            <!-- Row shown when there is no matching data. -->
-            <tr class="mat-row" *matNoDataRow>
-                <td class="table-loading-cell" *ngIf="isLoadingResults" [attr.colspan]="displayedColumns.length">
-                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-                </td>
-                <td class="mat-cell" *ngIf="isRateLimitReached" [attr.colspan]="displayedColumns.length">
-                    No data found <span *ngIf="search.value">matching the filter "{{search.value}}"</span>
-                </td>
-            </tr>    
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>     
         </table>
+
+        <!-- Creeaza componenta de loading -->
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+        <mat-progress-spinner mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
     </div>
 
     <mat-paginator 

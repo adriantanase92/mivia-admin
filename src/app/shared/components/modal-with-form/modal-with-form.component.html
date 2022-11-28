@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+    <ng-container [formGroup]="myForm">
+        <ng-container *ngFor="let formItem of dynamicFormFields">
+            <app-dynamic-form-field [formItem]="formItem"></app-dynamic-form-field>
+        </ng-container>
+
+        <pre>
+            {{myForm.value | json}}
+        </pre>
+
+        isValid: {{myForm.valid}}
+    </ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button (click)="save()">Save</button>
+</mat-dialog-actions>

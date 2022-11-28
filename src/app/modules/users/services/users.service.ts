@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import {AbstractHttpService} from "src/app/core/http/abstract-http.service";
 
 @Injectable({
     providedIn: "root"
@@ -8,6 +9,8 @@ export class UsersService {
     doctorsListData = {
         searchLabel: "Search doctors",
         type: "doctor",
+        single: "doctor",
+        plural: "doctors",
         tableColumnsData: [
             {
                 name: "position",
@@ -86,5 +89,5 @@ export class UsersService {
         ]
     };
 
-    constructor() {}
+    constructor(private httpService: AbstractHttpService) {}
 }

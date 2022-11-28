@@ -1,0 +1,53 @@
+<ng-container [formGroup]="form">
+    <div class="form__field form__field--block">
+        <mat-form-field  appearance="standard">
+            <mat-label *ngIf="formItem.type !== 'checkbox'">{{formItem.label}}</mat-label>
+
+            <!-- Input type field -->
+            <input 
+                matInput
+                *ngIf="formItem.type==='text' || formItem.type==='email' || formItem.type==='tel' || formItem.type==='password'"
+                [formControlName]="formItem.id" 
+                [id]="'field-'+formItem.id" 
+                type="text">
+
+            <!-- Radio type field -->
+            <mat-radio-group [formControlName]="formItem.id" *ngIf="formItem.type==='radio'">
+                <mat-radio-button *ngFor="let option of formItem.options | keyvalue" [value]="option.key">{{option.value}}</mat-radio-button>
+            </mat-radio-group>
+
+            <!-- Checkbox type field -->
+            <mat-checkbox [formControlName]="formItem.id" *ngIf="formItem.type==='checkbox' && formItem.options === undefined">{{formItem.label}}</mat-checkbox>
+            <section class="example-section" [formControlName]="formItem.id" *ngIf="formItem.type==='checkbox' && formItem.options !== undefined">
+                <h4>{{formItem.label}}:</h4>
+                <p><mat-checkbox *ngFor="let option of formItem.options | keyvalue" [formControlName]="option.key">{{option.value}}</mat-checkbox></p>
+              </section>
+
+            <!-- Textarea type field -->
+            <textarea 
+                matInput 
+                *ngIf="formItem.type==='textarea'"
+                placeholder="Ex. 100 Main St">{{formItem.value}}</textarea>
+
+            <!-- Select type field -->
+            <mat-select *ngIf="formItem.type==='select'" [formControlName]="formItem.id">
+                <mat-option selected [value]="null">Please select</mat-option>
+                <mat-option *ngFor="let option of formItem.options | keyvalue" [value]="option.key">{{option.value}}</mat-option>
+                <!-- <mat-select-trigger>
+                    {{toppings.value?.[0] || ''}}
+                    <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                    (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                    </span>
+                </mat-select-trigger> -->
+            </mat-select>
+
+            <!-- Icon Option -->
+            <mat-icon *ngIf="formItem.icon && formItem.icon.position === 'left'" matPrefix>{{formItem.icon.name}}</mat-icon>
+            <mat-icon *ngIf="formItem.icon && formItem.icon.position === 'right'" matSuffix>{{formItem.icon.name}}</mat-icon>
+
+            <!-- <mat-hint align="end">{{username?.value?.length || 0}}/10</mat-hint> -->
+            <!-- <mat-error *ngIf="username?.pending">Checking for uniqueness...</mat-error> -->
+            <!-- <mat-error *ngIf="username?.errors?.['required']">Username is required</mat-error>           -->
+        </mat-form-field>
+    </div>
+</ng-container>

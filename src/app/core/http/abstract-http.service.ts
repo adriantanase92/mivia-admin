@@ -11,11 +11,9 @@ export class AbstractHttpService {
 
     constructor(private http: HttpClient) {}
 
-    getAll<T>(collation: string, query?: string): Observable<T> {
-        const fullUrl = query
-            ? `${this.baseUrl}/${collation}?${query}`
-            : `${this.baseUrl}/${collation}`;
-        return this.http.get<T>(fullUrl);
+    getAll<T>(collation: string, params?: any): Observable<T> {
+        const fullUrl = `${this.baseUrl}/${collation}`;
+        return this.http.get<T>(fullUrl, {params});
     }
 
     getOneById<T>(collation: string, id: string): Observable<T> {
