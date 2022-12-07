@@ -2,9 +2,9 @@ import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {LayoutComponent} from "./components/layout/layout.component";
 import {DoctorComponent} from "./pages/doctor/doctor.component";
-import {DoctorsComponent} from "./pages/doctors/doctors.component";
-import {PatientsComponent} from "./pages/patients/patients.component";
-import {StaffComponent} from "./pages/staff/staff.component";
+import {DoctorsComponent} from "./pages/doctors.component";
+import {PatientsComponent} from "./pages/patients.component";
+import {StaffComponent} from "./pages/staff.component";
 
 const routes: Routes = [
     {

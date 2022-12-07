@@ -1,6 +1,6 @@
 import {Component, Input} from "@angular/core";
 import {FormGroup, FormGroupDirective} from "@angular/forms";
-import {DynamicFormField} from "./dynamic-form-field.interface";
+import {DynamicFormField} from "../list-items/list-items.interface";
 
 @Component({
     selector: "app-dynamic-form-field",

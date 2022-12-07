@@ -1,9 +1,11 @@
+<mat-card-title>{{ data.pageTitle }}</mat-card-title>
+
 <div class="flx-row flx-between-xs flx-middle-xs">
     <div class="flx-col-xs-6">
         <button 
             mat-raised-button 
             aria-label="Add doctor"
-            (click)="openAddItemModal()">Add doctor</button>
+            (click)="openAddItemModal()">{{data.addItemBtn}}</button>
     </div>
     
     <div class="flx-col-xs-6 flx-end-xs">
@@ -18,7 +20,7 @@
 <section class="data-iterator mat-elevation-z2">
     <div class="data-iterator__table-container">
         <table class="data-iterator__table" mat-table [dataSource]="items" matSort>
-            <ng-container [matColumnDef]="column.name" *ngFor="let column of data.tableColumnsData; let i = index" [sticky]="column.sticky">
+            <ng-container [matColumnDef]="column.name" *ngFor="let column of data.tableColumns; let i = index" [sticky]="column.sticky">
                 <th mat-header-cell *matHeaderCellDef [mat-sort-header]="checkSortValues(column)" [disabled]="!column.sortable"> {{column.label}}</th>
                 <td mat-cell *matCellDef="let row;">
                     <ng-container *ngIf="column.name === 'position';">
@@ -26,7 +28,7 @@
                     </ng-container>
 
                     <ng-container *ngIf="column.name !== 'position' && column.name !== 'actions'">
-                        {{ this.helpersService.isObjectValue(row[column.name]) ? row[column.name][column.subname] : row[column.name] }}
+                        {{ this.helpersService.isObjectValue(row[column.name]) && column.subname ? row[column.name][column.subname] : row[column.name] }}
                     </ng-container>
 
                     <ng-container *ngIf="column.name === 'actions'">

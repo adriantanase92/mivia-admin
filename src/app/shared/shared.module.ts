@@ -10,6 +10,7 @@ import {SingleItemComponent} from "./components/single-item/single-item.componen
 import {DynamicFormFieldComponent} from "./components/dynamic-form-field/dynamic-form-field.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ModalWithFormComponent} from "./components/modal-with-form/modal-with-form.component";
+import { DynamicFormErrorComponent } from './components/dynamic-form-error/dynamic-form-error.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import {ModalWithFormComponent} from "./components/modal-with-form/modal-with-fo
         ListItemsComponent,
         SingleItemComponent,
         DynamicFormFieldComponent,
-        ModalWithFormComponent
+        ModalWithFormComponent,
+        DynamicFormErrorComponent
     ],
     exports: [
         NavComponent,

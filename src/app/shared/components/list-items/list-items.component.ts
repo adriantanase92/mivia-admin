@@ -17,6 +17,7 @@ import {
 } from "rxjs";
 import {NotificationService} from "src/app/core/notifications/notification.service";
 import {ModalWithFormComponent} from "../modal-with-form/modal-with-form.component";
+import {ListItemsData} from "./list-items.interface";
 
 @Component({
     selector: "app-list-items",
@@ -24,13 +25,7 @@ import {ModalWithFormComponent} from "../modal-with-form/modal-with-form.compone
 })
 export class ListItemsComponent implements OnInit, AfterViewInit {
     @Input() collation: string = "";
-    @Input() data!: {
-        searchLabel: string;
-        type?: string;
-        single: string;
-        plural: string;
-        tableColumnsData: any[];
-    };
+    @Input() data!: ListItemsData;
 
     displayedColumns: string[] = [];
     items: any[] = [];
@@ -42,14 +37,14 @@ export class ListItemsComponent implements OnInit, AfterViewInit {
     @ViewChild("search") search!: ElementRef;
 
     constructor(
-        public modal: MatDialog,
         private httpService: AbstractHttpService,
+        public modal: MatDialog,
         public helpersService: HelpersService,
         public notificationService: NotificationService
     ) {}
 
     ngOnInit(): void {
-        this.displayedColumns = this.data.tableColumnsData.map((column) => column.name);
+        this.displayedColumns = this.data.tableColumns.map((column) => column.name);
         this.loadItemsPage();
     }
 
@@ -139,7 +134,7 @@ export class ListItemsComponent implements OnInit, AfterViewInit {
 
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
-        dialogConfig.data = {};
+        dialogConfig.data = this.data.modal;
 
         this.modal.open(ModalWithFormComponent, dialogConfig);
     }
